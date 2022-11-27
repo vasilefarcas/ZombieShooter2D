@@ -1,0 +1,11 @@
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\bin\Debug\ZombieShooter2D.exe.config
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\bin\Debug\ZombieShooter2D.exe
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\bin\Debug\ZombieShooter2D.pdb
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.csproj.AssemblyReference.cache
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.csproj.SuggestedBindingRedirects.cache
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.Form1.resources
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.Properties.Resources.resources
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.csproj.GenerateResource.cache
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.csproj.CoreCompileInputs.cache
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.exe
+D:\Drive\OneDrive\Facultate\An 2\Metode avansate de programare\Eu\ZombieShooter2D\ZombieShooter2D\obj\Debug\ZombieShooter2D.pdb
