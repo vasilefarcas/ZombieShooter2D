@@ -14,5 +14,17 @@ namespace ZombieShooter2D
         {
             form = f;
         }
+        public static bool isCollisionPlayerEnemy(Player player, Enemy enemy)
+        {
+            if (player.image.Bounds.IntersectsWith(enemy.image.Bounds))
+                return true;
+            return false;
+        }
+        public static bool isCollisionBulletEnemy(Bullet bullet, Enemy enemy)
+        {
+            if (bullet.image.Bounds.IntersectsWith(enemy.image.Bounds)==true)
+                return true;
+            return false;
+        }
     }
 }
