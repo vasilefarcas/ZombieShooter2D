@@ -14,7 +14,7 @@ namespace ZombieShooter2D
         public int speed;
         public int orientation;
         public bool targetHit;
-        public Bullet(int speed = 6)
+        public Bullet(int speed = 8)
         {
             this.speed = speed;
             image = new PictureBox();
@@ -26,28 +26,28 @@ namespace ZombieShooter2D
             switch (orientation)
             {
                 case 1:
-                    image.Location = new Point(player.image.Location.X, player.image.Location.Y);
+                    image.Location = new Point(player.image.Location.X + 24, player.image.Location.Y);
                     image.Size = new Size(12, 16);
                     image.BackColor = Color.Transparent;
                     image.Image = Image.FromFile("../../bin/Images/bullet_up.png");
                     image.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
                 case 2:
-                    image.Location = new Point(player.image.Location.X, player.image.Location.Y);
+                    image.Location = new Point(player.image.Location.X + 19, player.image.Location.Y);
                     image.Size = new Size(12, 16);
                     image.BackColor = Color.Transparent;
                     image.Image = Image.FromFile("../../bin/Images/bullet_down.png");
                     image.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
                 case 3:
-                    image.Location = new Point(player.image.Location.X, player.image.Location.Y);
+                    image.Location = new Point(player.image.Location.X, player.image.Location.Y + 18);
                     image.Size = new Size(16, 12);
                     image.BackColor = Color.Transparent;
                     image.Image = Image.FromFile("../../bin/Images/bullet_left.png");
                     image.SizeMode = PictureBoxSizeMode.StretchImage;
                     break;
                 case 4:
-                    image.Location = new Point(player.image.Location.X, player.image.Location.Y);
+                    image.Location = new Point(player.image.Location.X, player.image.Location.Y + 24);
                     image.Size = new Size(16, 12);
                     image.BackColor = Color.Transparent;
                     image.Image = Image.FromFile("../../bin/Images/bullet_right.png");

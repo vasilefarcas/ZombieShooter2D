@@ -22,7 +22,7 @@ namespace ZombieShooter2D
             image = new PictureBox();
             image.Parent = Engine.form;
             Random rnd = new Random();
-            image.Location = new Point(rnd.Next(25, 1180), rnd.Next(50, 600));
+            image.Location = new Point(rnd.Next(25, 1180), rnd.Next(70, 600));
             image.Size = new Size(55, 65);
             image.BackColor = Color.Transparent;
             image.Image = Image.FromFile("../../bin/Images/enemy_up.png");
@@ -90,7 +90,6 @@ namespace ZombieShooter2D
         }
         public void DeleteEnemy()
         {
-            
             isAlive = false;
             image.Size = new Size(0, 0);
             image.Location = new Point(0, 0);

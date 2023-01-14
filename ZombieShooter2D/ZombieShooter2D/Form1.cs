@@ -29,7 +29,7 @@ namespace ZombieShooter2D
             ammoCount.Text = player.ammo.ToString();
             killsCount.Text = "0";
             healthBar.Value = player.health;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 enemy.Add(new Enemy());
                 Stopwatch stopWatch = new Stopwatch();
@@ -52,7 +52,12 @@ namespace ZombieShooter2D
             if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
                 player.isMovingDown = true;
             if (e.KeyCode == Keys.Space)
+            {
+                if(!player.isShooting)
+                player.Shot();
                 player.isShooting = true;
+                timer3.Enabled = true;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -68,11 +73,17 @@ namespace ZombieShooter2D
                 if (item.targetHit == false)
                     item.Move();
             }
-            healthBar.Value = player.health;
+
+            ammoCount.Text = player.ammo.ToString();
+            healthBar.Value = Math.Max(player.health, 0);
             if (!player.CheckIfAlive())
             {
                 timer1.Enabled = false;
                 MessageBox.Show("You died!");
+                timer1.Enabled = false;
+                timer2.Enabled = false;
+                timer3.Enabled = false;
+                timer4.Enabled = false;
                 this.Close();
             }
         }
@@ -96,7 +107,12 @@ namespace ZombieShooter2D
                 player.isMovingDown = false;
             }
             if (e.KeyCode == Keys.Space)
+            {
                 player.isShooting = false;
+                timer3.Enabled = false;
+            }
+            if (e.KeyCode == Keys.R)
+                player.Reload();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -108,6 +124,7 @@ namespace ZombieShooter2D
                 foreach (Bullet item1 in player.bullets)
                     if (Engine.isCollisionBulletEnemy(item1, item))
                     {
+                        killsCount.Text = (int.Parse(killsCount.Text) + 1).ToString();
                         item1.DeleteBullet();
                         item.DeleteEnemy();
                         player.killCount++;
@@ -118,11 +135,21 @@ namespace ZombieShooter2D
 
         private void timer3_Tick(object sender, EventArgs e)
         {
+            if (player.isShooting)
+                player.Shot();
+
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            enemy.Add(new Enemy());
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
             foreach (Enemy item in enemy)
                 if (item.isAttacking)
                     player.health -= item.damage;
-            if (player.isShooting)
-                player.Shot();
         }
     }
 }

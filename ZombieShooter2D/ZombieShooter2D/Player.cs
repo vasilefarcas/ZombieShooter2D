@@ -15,7 +15,7 @@ namespace ZombieShooter2D
         public const int maxAmmo = 10;
         public bool isMovingLeft, isMovingRight, isMovingUp, isMovingDown, isShooting;
         public int orientation; // 1 means up, 2 means down, 3 means left, 4 means right
-        public List<Bullet> bullets=new List<Bullet>();
+        public List<Bullet> bullets = new List<Bullet>();
         public Player(int health = 100, int speed = 5, int ammo = 10)
         {
             image = new PictureBox();
@@ -36,7 +36,7 @@ namespace ZombieShooter2D
         {
             if (isMovingDown)
             {
-                if (image.Top < 600)
+                if (image.Top < 580)
                     image.Top += speed;
                 image.Size = new Size(54, 72);
                 image.Image = Image.FromFile("../../bin/Images/player_down.png");
@@ -52,7 +52,7 @@ namespace ZombieShooter2D
             }
             else if (isMovingUp)
             {
-                if (image.Top > 50)
+                if (image.Top > 70)
                     image.Top -= speed;
                 image.Size = new Size(54, 72);
                 image.Image = Image.FromFile("../../bin/Images/player_up.png");
@@ -70,18 +70,27 @@ namespace ZombieShooter2D
         public bool CheckIfAlive()
         {
             if (health <= 0)
+            {
                 return false;
-            return true;
+            }
+                return true;
+
         }
 
-        public void Shot()
+        public bool Shot()
         {
-            if(ammo>0)
+            if (ammo > 0)
             {
-            bullets.Add(new Bullet());
-            bullets[bullets.Count-1].setDirection(this);
+                bullets.Add(new Bullet());
+                bullets[bullets.Count - 1].setDirection(this);
                 ammo--;
+                return true;
             }
+            return false;
+        }
+        public void Reload()
+        {
+            ammo = maxAmmo;
         }
     }
 }
