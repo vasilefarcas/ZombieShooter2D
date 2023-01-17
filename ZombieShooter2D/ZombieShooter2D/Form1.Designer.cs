@@ -36,8 +36,6 @@
             this.healthLabel = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -115,21 +113,10 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // timer2
-            // 
-            this.timer2.Enabled = true;
-            this.timer2.Interval = 200;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 300;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
             // timer4
             // 
             this.timer4.Enabled = true;
-            this.timer4.Interval = 4000;
+            this.timer4.Interval = 1000;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // timer5
@@ -172,8 +159,6 @@
         private System.Windows.Forms.Label healthLabel;
         private System.Windows.Forms.ProgressBar healthBar;
         public System.Windows.Forms.Timer timer1;
-        public System.Windows.Forms.Timer timer2;
-        public System.Windows.Forms.Timer timer3;
         public System.Windows.Forms.Timer timer4;
         public System.Windows.Forms.Timer timer5;
     }

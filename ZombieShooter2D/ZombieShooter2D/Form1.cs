@@ -16,6 +16,7 @@ namespace ZombieShooter2D
     {
         public Player player;
         public List<Enemy> enemy = new List<Enemy>();
+        private int time = 0;
 
         public Form1()
         {
@@ -39,6 +40,8 @@ namespace ZombieShooter2D
             }
         }
 
+        #region KeyUpDown
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -53,38 +56,11 @@ namespace ZombieShooter2D
                 player.isMovingDown = true;
             if (e.KeyCode == Keys.Space)
             {
-                if(!player.isShooting)
-                player.Shot();
-                player.isShooting = true;
-                timer3.Enabled = true;
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            player.Move();
-            foreach (Enemy item in enemy)
-            {
-                if (item.isAlive)
-                    item.Move();
-            }
-            foreach (Bullet item in player.bullets)
-            {
-                if (item.targetHit == false)
-                    item.Move();
-            }
-
-            ammoCount.Text = player.ammo.ToString();
-            healthBar.Value = Math.Max(player.health, 0);
-            if (!player.CheckIfAlive())
-            {
-                timer1.Enabled = false;
-                MessageBox.Show("You died!");
-                timer1.Enabled = false;
-                timer2.Enabled = false;
-                timer3.Enabled = false;
-                timer4.Enabled = false;
-                this.Close();
+                if (time >= 30)
+                {
+                    player.Shot();
+                    time = 0;
+                }
             }
         }
 
@@ -106,17 +82,26 @@ namespace ZombieShooter2D
             {
                 player.isMovingDown = false;
             }
-            if (e.KeyCode == Keys.Space)
-            {
-                player.isShooting = false;
-                timer3.Enabled = false;
-            }
             if (e.KeyCode == Keys.R)
                 player.Reload();
         }
+        #endregion
 
-        private void timer2_Tick(object sender, EventArgs e)
+        #region Timers
+        private void timer1_Tick(object sender, EventArgs e)
         {
+            time++;
+            player.Move();
+            foreach (Enemy item in enemy)
+            {
+                if (item.isAlive)
+                    item.Move();
+            }
+            foreach (Bullet item in player.bullets)
+            {
+                if (item.targetHit == false)
+                    item.Move();
+            }
             foreach (Enemy item in enemy)
             {
                 item.VerifyDirection(player);
@@ -130,16 +115,17 @@ namespace ZombieShooter2D
                         player.killCount++;
                     }
             }
-
+            ammoCount.Text = player.ammo.ToString();
+            healthBar.Value = Math.Max(player.health, 0);
+            if (!player.CheckIfAlive())
+            {
+                timer1.Enabled = false;
+                timer1.Enabled = false;
+                timer4.Enabled = false;
+                MessageBox.Show("You died!");
+                this.Close();
+            }
         }
-
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-            if (player.isShooting)
-                player.Shot();
-
-        }
-
         private void timer4_Tick(object sender, EventArgs e)
         {
             enemy.Add(new Enemy());
@@ -151,5 +137,8 @@ namespace ZombieShooter2D
                 if (item.isAttacking)
                     player.health -= item.damage;
         }
+        #endregion
+
+
     }
 }

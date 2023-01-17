@@ -13,7 +13,7 @@ namespace ZombieShooter2D
         public PictureBox image;
         public int health, speed, ammo, killCount;
         public const int maxAmmo = 10;
-        public bool isMovingLeft, isMovingRight, isMovingUp, isMovingDown, isShooting;
+        public bool isMovingLeft, isMovingRight, isMovingUp, isMovingDown;
         public int orientation; // 1 means up, 2 means down, 3 means left, 4 means right
         public List<Bullet> bullets = new List<Bullet>();
         public Player(int health = 100, int speed = 5, int ammo = 10)
